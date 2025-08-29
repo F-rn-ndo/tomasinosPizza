@@ -1,480 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomasinos - La Mejor Pizza de Nuevo León</title>
+    <meta name="description" content="Tomasinos - La mejor pizza artesanal de Nuevo León, México. Pizzas familiares, promociones especiales y entrega a domicilio.">
+    <meta name="keywords" content="pizza, Nuevo León, México, entrega, Tomasinos, pizza artesanal">
+    <title>Tomasinos</title>
+    
+    <!-- Vinculación del archivo CSS -->
     <link rel="stylesheet" href="estilo.css">
+    
+    <!-- Favicon (opcional) -->
+    <link rel="icon" type="image/x-icon" href="images/logotomasinos.jpeg">
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER - Barra de navegación fija -->
     <header class="header">
         <div class="nav-container">
-            <div class="logo">🍕 Tomasinos</div>
+            <!-- Logo de la pizzería -->
+            <div class="logo">Tomasinos</div>
+            
+            <!-- Menú de navegación principal -->
             <nav>
                 <ul class="nav-menu" id="nav-menu">
+                    <!-- Enlace a página principal -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('inicio')">
-                            <span class="icon">🏠</span> Inicio
+                        <a href="index.html" class="nav-link active">
+                            Inicio
                         </a>
                     </li>
-                    <li class="nav-item">
+                    
+                    <!-- Menú desplegable de comida -->
+                    <li class="nav-item dropdown-parent">
                         <a href="#" class="nav-link">
-                            <span class="icon">🍕</span> Menú
+                            Menú
                         </a>
                         <div class="dropdown">
-                            <a href="#" onclick="showSection('promociones')">🎉 Promociones</a>
-                            <a href="#" onclick="showSection('pizzas')">🍕 Pizzas</a>
-                            <a href="#" onclick="showSection('pizzas-familiares')">👨‍👩‍👧‍👦 Pizzas Familiares</a>
-                            <a href="#" onclick="showSection('stromboli')">🌯 Stromboli</a>
-                            <a href="#" onclick="showSection('complementos')">🍟 Complementos y Extras</a>
-                            <a href="#" onclick="showSection('refrescos')">🥤 Refrescos</a>
+                            <a href="promociones.html">Promociones</a>
+                            <a href="pizzas.html">Pizzas</a>
+                            <a href="pizzas-familiares.html">Pizzas Familiares</a>
+                            <a href="stromboli.html">Stromboli</a>
+                            <a href="complementos.html">Complementos y Extras</a>
+                            <a href="refrescos.html">Refrescos</a>
                         </div>
                     </li>
+                    
+                    <!-- Enlace a sucursales -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('sucursales')">
-                            <span class="icon">📍</span> Sucursales
+                        <a href="sucursales.html" class="nav-link">
+                            Sucursales
                         </a>
                     </li>
+                    
+                    <!-- Enlace a información de la empresa -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('quienes-somos')">
-                            <span class="icon">👥</span> ¿Quiénes somos?
+                        <a href="quienes-somos.html" class="nav-link">
+                            ¿Quiénes somos?
                         </a>
                     </li>
+                    
+                    <!-- Enlace externo a comentarios de Google -->
                     <li class="nav-item">
                         <a href="https://www.google.com/maps/search/tomasinos+pizza+nuevo+leon" target="_blank" class="nav-link">
-                            <span class="icon">💬</span> Comentarios
+                            Comentarios
                         </a>
                     </li>
                 </ul>
             </nav>
+            
+            <!-- Botón para menú móvil -->
             <div class="mobile-menu-btn" id="mobile-menu-btn">
-                <span class="icon">☰</span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio-hero">
+    <!-- HERO SECTION - Sección principal con imagen de fondo -->
+    <section class="hero">
+        <!-- Contenido principal del hero -->
         <div class="hero-content">
-            <h1>Bienvenidos a Tomasinos</h1>
-            <p>La mejor pizza artesanal de Nuevo León, hecha con ingredientes frescos y mucho amor</p>
+            <h1 class="hero-title">Bienvenidos a Tomasinos</h1>
+            <p class="hero-subtitle">La mejor pizza artesanal de Nuevo León, hecha con ingredientes frescos y mucho amor</p>
+            
+            <!-- Botones de llamada a la acción -->
             <div class="cta-buttons">
-                <a href="#" class="cta-btn" onclick="showSection('pizzas')">
-                    <span class="icon">🍕</span> Ver Menú
+                <a href="pizzas.html" class="cta-btn primary">
+                    Ver Menú
                 </a>
-                <a href="https://www.didifood.com/restaurant/tomasinos" target="_blank" class="cta-btn delivery-btn">
-                    <span class="icon">🏍️</span> Didi Food
+                <a href="https://www.didifood.com/restaurant/tomasinos" target="_blank" class="cta-btn secondary">
+                    🚚 | Didi Food
                 </a>
-                <a href="https://www.ubereats.com/store/tomasinos" target="_blank" class="cta-btn delivery-btn">
-                    <span class="icon">🚗</span> Uber Eats
+                <a href="https://www.ubereats.com/store/tomasinos" target="_blank" class="cta-btn secondary">
+                    🚚 | Uber Eats
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- MAIN CONTENT - Contenido principal de la página de inicio -->
     <main class="main-content">
         <div class="container">
-            <!-- Inicio Section -->
-            <section id="inicio" class="section active">
-                <h2>🍕 Bienvenidos a la Familia Tomasinos</h2>
-                <div style="text-align: center; padding: 40px 0;">
-                    <p style="font-size: 1.2rem; margin-bottom: 30px; color: #666;">
-                        Desde hace más de 15 años, Tomasinos ha sido sinónimo de calidad, sabor y tradición en Nuevo León. 
-                        Nuestra pasión por crear las mejores pizzas artesanales nos ha convertido en la pizzería favorita de miles de familias.
-                    </p>
+            <!-- Sección de bienvenida -->
+            <section class="welcome-section">
+                <h2 class="section-title">Bienvenidos a la Familia Tomasinos</h2>
+                <p class="section-description">
+                    Desde hace más de 15 años, Tomasinos ha sido sinónimo de calidad, sabor y tradición en Nuevo León. 
+                    Nuestra pasión por crear las mejores pizzas artesanales nos ha convertido en la pizzería favorita de miles de familias.
+                </p>
+                
+                <!-- Grid de características destacadas -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3 class="feature-title">Calidad Premium</h3>
+                        <p class="feature-description">Ingredientes frescos seleccionados cuidadosamente cada día para garantizar el mejor sabor.</p>
+                    </div>
                     
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <h3>🏆 Calidad Premium</h3>
-                            <p>Ingredientes frescos seleccionados cuidadosamente cada día para garantizar el mejor sabor.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h3>👨‍🍳 Receta Artesanal</h3>
-                            <p>Masa hecha en casa daily con nuestra receta secreta transmitida por generaciones.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h3>🚚 Entrega Rápida</h3>
-                            <p>Disponible en Didi Food y Uber Eats para que disfrutes nuestras pizzas en la comodidad de tu hogar.</p>
-                        </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🍳</div>
+                        <h3 class="feature-title">Receta Artesanal</h3>
+                        <p class="feature-description">Masa hecha en casa diariamente con nuestra receta secreta transmitida por generaciones.</p>
                     </div>
-                </div>
-
-                <!-- Social Media -->
-                <div class="social-media">
-                    <a href="https://facebook.com/tomasinos" target="_blank" class="social-btn facebook">
-                        📘
-                    </a>
-                    <a href="https://instagram.com/tomasinos" target="_blank" class="social-btn instagram">
-                        📷
-                    </a>
-                </div>
-            </section>
-
-            <!-- Promociones Section -->
-            <section id="promociones" class="section">
-                <h2>🎉 Promociones Especiales</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>🍕 Martes de Pizza</h3>
-                        <p>2 pizzas medianas por el precio de 1. Válido todos los martes.</p>
-                        <div class="price">¡50% de descuento!</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>👨‍👩‍👧‍👦 Paquete Familiar</h3>
-                        <p>1 Pizza familiar + 4 refrescos + complemento a elegir</p>
-                        <div class="price">$450 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>🌯 Combo Stromboli</h3>
-                        <p>Stromboli + refresco + papas</p>
-                        <div class="price">$180 MXN</div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h3 class="feature-title">Entrega Rápida</h3>
+                        <p class="feature-description">Disponible en Didi Food y Uber Eats para que disfrutes nuestras pizzas en la comodidad de tu hogar.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Pizzas Section -->
-            <section id="pizzas" class="section">
-                <h2>🍕 Nuestras Pizzas</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Margherita Clásica</h3>
-                        <p>Salsa de tomate, mozzarella fresca, albahaca, aceite de oliva</p>
-                        <div class="price">$180 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Pepperoni Premium</h3>
-                        <p>Pepperoni de alta calidad, mozzarella, salsa especial</p>
-                        <div class="price">$220 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Hawaiana</h3>
-                        <p>Jamón, piña, mozzarella, salsa de tomate</p>
-                        <div class="price">$200 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Mexicana</h3>
-                        <p>Chorizo, jalapeños, cebolla, pimiento, mozzarella</p>
-                        <div class="price">$240 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Suprema</h3>
-                        <p>Pepperoni, jamón, champiñones, pimiento, cebolla</p>
+            <!-- Sección de pizzas destacadas -->
+            <section class="featured-pizzas">
+                <h2 class="section-title">Nuestras Pizzas Más Populares</h2>
+                <div class="pizza-showcase">
+                    <div class="pizza-card">
+                        <div class="pizza-image">🍕</div>
+                        <h3>Pizza Suprema</h3>
+                        <p>Pepperoni, jamón, champiñones, pimiento y cebolla</p>
                         <div class="price">$280 MXN</div>
+                        <a href="pizzas.html" class="btn-small">Ver más</a>
                     </div>
-                    <div class="menu-item">
-                        <h3>Vegetariana</h3>
-                        <p>Champiñones, pimiento, cebolla, tomate, aceitunas</p>
-                        <div class="price">$210 MXN</div>
+                    
+                    <div class="pizza-card">
+                        <div class="pizza-image">🍕</div>
+                        <h3>Pizza Mexicana</h3>
+                        <p>Chorizo, jalapeños, cebolla y pimiento</p>
+                        <div class="price">$240 MXN</div>
+                        <a href="pizzas.html" class="btn-small">Ver más</a>
                     </div>
-                </div>
-            </section>
-
-            <!-- Pizzas Familiares Section -->
-            <section id="pizzas-familiares" class="section">
-                <h2>👨‍👩‍👧‍👦 Pizzas Familiares</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Familiar Margherita</h3>
-                        <p>Pizza familiar con salsa de tomate, mozzarella fresca y albahaca</p>
-                        <div class="price">$320 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Familiar Suprema</h3>
-                        <p>Pizza familiar con todos los ingredientes premium</p>
-                        <div class="price">$450 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Familiar Especial Tomasinos</h3>
-                        <p>Nuestra receta especial con ingredientes secretos</p>
-                        <div class="price">$480 MXN</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Stromboli Section -->
-            <section id="stromboli" class="section">
-                <h2>🌯 Stromboli</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Stromboli Clásico</h3>
-                        <p>Jamón, mozzarella, salsa marinara</p>
-                        <div class="price">$150 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Stromboli Pepperoni</h3>
-                        <p>Pepperoni, mozzarella, salsa especial</p>
-                        <div class="price">$170 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Stromboli Supremo</h3>
-                        <p>Combinación de carnes y vegetales</p>
-                        <div class="price">$190 MXN</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Complementos Section -->
-            <section id="complementos" class="section">
-                <h2>🍟 Complementos y Extras</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Papas Fritas</h3>
-                        <p>Papas crujientes con sal de mar</p>
-                        <div class="price">$60 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Aros de Cebolla</h3>
-                        <p>Aros de cebolla empanizados y fritos</p>
-                        <div class="price">$70 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Palitos de Mozzarella</h3>
-                        <p>Bastones de mozzarella empanizados</p>
-                        <div class="price">$90 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Pan de Ajo</h3>
-                        <p>Pan artesanal con mantequilla de ajo y hierbas</p>
-                        <div class="price">$50 MXN</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Refrescos Section -->
-            <section id="refrescos" class="section">
-                <h2>🥤 Refrescos</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <h3>Coca-Cola 600ml</h3>
-                        <p>Refresco de cola clásico</p>
-                        <div class="price">$25 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Agua Natural 500ml</h3>
-                        <p>Agua purificada</p>
-                        <div class="price">$15 MXN</div>
-                    </div>
-                    <div class="menu-item">
-                        <h3>Jugo Natural</h3>
-                        <p>Variedad de sabores naturales</p>
-                        <div class="price">$35 MXN</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sucursales Section -->
-            <section id="sucursales" class="section">
-                <h2>📍 Nuestras Sucursales</h2>
-                <div class="sucursales-grid">
-                    <div class="sucursal">
-                        <h3>Sucursal Centro</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Centro, San Nicolás de los Garza, N.L.</p>
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.123456789!2d-100.123456!3d25.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA3JzI0LjQiTiAxMDDCsDA3JzI0LjQiVw!5e0!3m2!1ses!2smx!4v1234567890123" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                        <div class="horarios">
-                            <h4><i class="fas fa-clock"></i> Horarios:</h4>
-                            <p>Lunes a Domingo: 12:00 PM - 11:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quienes Somos Section -->
-            <section id="quienes-somos" class="section">
-                <h2>👥 ¿Quiénes Somos?</h2>
-                <div style="text-align: center; padding: 40px 0;">
-                    <div class="menu-item" style="max-width: 800px; margin: 0 auto;">
-                        <h3>🍕 Nuestra Historia</h3>
-                        <p style="font-size: 1.1rem; line-height: 1.8;">
-                            Tomasinos nació en 2008 de la pasión de una familia italiana por crear las mejores pizzas artesanales de Nuevo León. 
-                            Con más de 15 años de experiencia, hemos perfeccionado nuestras recetas tradicionales, utilizando solo los ingredientes 
-                            más frescos y de la más alta calidad.
-                        </p>
-                        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 20px;">
-                            Nuestra masa se prepara diariamente siguiendo técnicas tradicionales italianas, fermentada lentamente para lograr 
-                            esa textura perfecta que nos caracteriza. Cada pizza es una obra de arte culinaria hecha con amor y dedicación.
-                        </p>
-                    </div>
-
-                    <div class="menu-grid" style="margin-top: 40px;">
-                        <div class="menu-item">
-                            <h3>🎯 Nuestra Misión</h3>
-                            <p>Brindar a nuestros clientes una experiencia gastronómica única, ofreciendo pizzas artesanales de la más alta calidad en un ambiente familiar y acogedor.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h3>👁️ Nuestra Visión</h3>
-                            <p>Ser la pizzería líder en Nuevo León, reconocida por nuestra excelencia en sabor, calidad y servicio al cliente.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h3>💝 Nuestros Valores</h3>
-                            <p>Calidad, tradición familiar, ingredientes frescos, servicio excepcional y compromiso con la satisfacción de nuestros clientes.</p>
-                        </div>
+                    
+                    <div class="pizza-card">
+                        <div class="pizza-image">🍕</div>
+                        <h3>Pizza Familiar</h3>
+                        <p>Perfecta para compartir en familia</p>
+                        <div class="price">Desde $320 MXN</div>
+                        <a href="pizzas-familiares.html" class="btn-small">Ver más</a>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- WhatsApp Float Button -->
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/5281234567890?text=Hola,%20vengo%20de%20https://tsce.ola.click%20Deseo%20realizar%20el%20siguiente%20pedido:" 
        target="_blank" 
        class="whatsapp-float"
-       title="¡Haz tu pedido por WhatsApp!">
-        💬
+       title="¡Haz tu pedido por WhatsApp!"
+       aria-label="Contactar por WhatsApp">
+        WhatsApp
     </a>
 
-    <!-- Footer -->
+    <!-- FOOTER - Pie de página -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Tomasinos - Todos los derechos reservados</p>
-            <p>Desarrollado por <strong>Tu Empresa</strong> - Soluciones Web Profesionales</p>
-            <p>📞 Teléfono: (81) 1234-5678 | 📧 Email: contacto@tomasinos.com</p>
-            <div class="social-media" style="margin-top: 20px;">
-                <a href="https://facebook.com/tomasinos" target="_blank" class="social-btn facebook">
-                    📘
-                </a>
-                <a href="https://instagram.com/tomasinos" target="_blank" class="social-btn instagram">
-                    📷
-                </a>
+            <!-- Información de contacto -->
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Teléfono: (81) 1234-5678</p>
+                <p>Email: contacto@tomasinos.com</p>
             </div>
+            
+            <!-- Enlaces rápidos -->
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="pizzas.html">Menú</a></li>
+                    <li><a href="sucursales.html">Sucursales</a></li>
+                    <li><a href="quienes-somos.html">Nosotros</a></li>
+                </ul>
+            </div>
+            
+            <!-- Redes sociales -->
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com/tomasinos" target="_blank" class="social-link facebook">Facebook</a>
+                    <a href="https://instagram.com/tomasinos" target="_blank" class="social-link instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tomasinos - Todos los derechos reservados</p>
+            <p>Desarrollado por <strong>CRESIMEX</strong> - Soluciones Profesionales para tu Negocio.</p>
         </div>
     </footer>
 
-    <script>
-        // Variables globales
-        let currentSection = 'inicio';
-        
-        // Función para mostrar secciones
-        function showSection(sectionId) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Mostrar la sección seleccionada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                currentSection = sectionId;
-            }
-            
-            // Ocultar hero si no es inicio
-            const hero = document.getElementById('inicio-hero');
-            if (sectionId === 'inicio') {
-                hero.style.display = 'flex';
-                document.querySelector('.main-content').style.paddingTop = '0';
-            } else {
-                hero.style.display = 'none';
-                document.querySelector('.main-content').style.paddingTop = '100px';
-            }
-            
-            // Cerrar menú móvil si está abierto
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.remove('active');
-            
-            // Scroll suave hacia arriba
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Menú móvil
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Cerrar menú móvil al hacer clic en un enlace
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                const navMenu = document.getElementById('nav-menu');
-                navMenu.classList.remove('active');
-            });
-        });
-        
-        // Efecto de scroll en header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-        
-        // Animaciones de entrada
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.menu-item, .sucursal');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-        
-        // Inicializar elementos para animación
-        function initializeAnimations() {
-            const elements = document.querySelectorAll('.menu-item, .sucursal');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'all 0.6s ease';
-            });
-        }
-        
-        // Ejecutar cuando se carga la página
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeAnimations();
-            animateOnScroll();
-            
-            // Mostrar sección de inicio por defecto
-            showSection('inicio');
-        });
-        
-        // Ejecutar animación en scroll
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Mejorar experiencia de usuario con hover effects
-        document.querySelectorAll('.cta-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Efecto parallax suave en hero
-        window.addEventListener('scroll', function() {
-            const hero = document.querySelector('.hero');
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            
-            if (currentSection === 'inicio') {
-                hero.style.transform = `translateY(${parallax}px)`;
-            }
-        });
-    </script>
+    <!-- Vinculación del archivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
-                        </div>
-                    </div>
-                    
-                    <div class="sucursal">
-                        <h3>Sucursal Norte</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Av. Universidad #456, Anáhuac, San Nicolás de los Garza, N.L.</p>
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.123456789!2d-100.123456!3d25.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA3JzI0LjQiTiAxMDDCsDA3JzI0LjQiVw!5e0!3m2!1ses!2smx!4v1234567890123" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                        <div class="horarios">
-                            <h4><i class="fas fa-clock"></i> Horarios:</h4>
-                            <p>Lunes a Domingo: 12:00 PM - 11:00 PM</p>
