@@ -1,128 +1,83 @@
-/* =================================
-   TOMASINOS - HOJA DE ESTILOS CSS
-   Pizzería - Nuevo León, México
-   ================================= */
-
-/* RESET Y CONFIGURACIÓN BASE */
+/* Reset y configuración base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
-}
-
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    overflow-x: hidden; /* Evita scroll horizontal */
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-/* VARIABLES CSS PARA COLORES */
-:root {
-    --primary-color: #ff6b35;      /* Naranja principal */
-    --secondary-color: #ff8c42;    /* Naranja claro */
-    --dark-color: #333;            /* Color oscuro para texto */
-    --light-color: #f8f9fa;        /* Color claro para fondos */
-    --white: #ffffff;              /* Blanco */
-    --shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra estándar */
-    --shadow-hover: 0 8px 25px rgba(0,0,0,0.15); /* Sombra en hover */
-}
-
-/* CONTENEDOR GENERAL */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* =================================
-   HEADER Y NAVEGACIÓN
-   ================================= */
-
+/* Header y Navigation */
 .header {
-    background: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente */
-    position: fixed; /* Fijo en la parte superior */
-    width: 100%;
+    background: #2c1810;
+    padding: 1rem 0;
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    transition: all 0.3s ease; /* Transición suave */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    padding: 0 20px;
 }
 
-/* LOGO */
 .logo {
-    font-size: 2rem;
+    color: #ff6b35;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-color);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    cursor: pointer;
 }
 
-/* MENÚ DE NAVEGACIÓN */
 .nav-menu {
-    display: flex;
     list-style: none;
-    gap: 30px;
-    align-items: center;
+    display: flex;
+    gap: 2rem;
 }
 
 .nav-item {
-    position: relative; /* Para posicionar los dropdowns */
+    position: relative;
 }
 
 .nav-link {
-    color: var(--white);
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    padding: 10px 15px;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: all 0.3s ease;
-    display: block;
 }
 
-/* Estado activo del enlace */
-.nav-link.active {
-    background: var(--primary-color);
-}
-
-/* Efecto hover en los enlaces */
 .nav-link:hover {
-    background: var(--primary-color);
+    background: #ff6b35;
     transform: translateY(-2px);
 }
 
-/* MENÚ DESPLEGABLE */
+/* Dropdown Menus */
 .dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: #2c1810;
     min-width: 200px;
-    border-radius: 10px;
-    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-hover);
 }
 
-/* Mostrar dropdown al hacer hover */
-.dropdown-parent:hover .dropdown {
+.nav-item:hover .dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -130,388 +85,341 @@ body {
 
 .dropdown a {
     display: block;
-    color: var(--white);
+    color: white;
+    padding: 0.8rem 1rem;
     text-decoration: none;
-    padding: 12px 20px;
-    transition: all 0.3s ease;
+    border-bottom: 1px solid #444;
+    transition: background 0.3s ease;
 }
 
 .dropdown a:hover {
-    background: var(--primary-color);
-    padding-left: 30px;
+    background: #ff6b35;
 }
 
-/* BOTÓN DE MENÚ MÓVIL */
-.mobile-menu-btn {
-    display: none; /* Oculto por defecto */
+.dropdown a:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
 }
 
-.hamburger-line {
+.mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--white);
+    background: white;
     margin: 3px 0;
     transition: 0.3s;
-    border-radius: 2px;
 }
 
-/* =================================
-   HERO SECTION
-   ================================= */
-
+/* Hero Section */
 .hero {
-    height: 100vh; /* Altura completa de la pantalla */
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('images/fondo.jpg');
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23ff6b35" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="60" fill="white" text-anchor="middle">Imagen de fondo aquí</text></svg>');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efecto parallax */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white);
-    position: relative;
+    color: white;
 }
 
-/* Overlay adicional para mejor contraste */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(255,107,53,0.1), rgba(0,0,0,0.3));
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* Por encima del overlay */
-    max-width: 800px;
-    padding: 0 20px;
-    animation: fadeInUp 1s ease; /* Animación de entrada */
-}
-
-.hero-title {
+.hero-content h1 {
     font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
-    animation: pulse 3s infinite; /* Animación de pulso */
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
+    margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    line-height: 1.5;
+    animation: fadeInUp 1s ease;
 }
 
-/* BOTONES DE LLAMADA A LA ACCIÓN */
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
 .cta-buttons {
     display: flex;
-    gap: 20px;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.6s both;
 }
 
-.cta-btn {
-    padding: 15px 30px;
-    color: var(--white);
+.btn {
+    padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    gap: 0.5rem;
 }
 
-/* Botón primario */
-.cta-btn.primary {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    box-shadow: 0 5px 15px rgba(255,107,53,0.4);
+.btn-primary {
+    background: #ff6b35;
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
 }
 
-.cta-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,107,53,0.6);
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
-/* Botón secundario */
-.cta-btn.secondary {
-    background: linear-gradient(45deg, #00d4aa, #00b894);
-    box-shadow: 0 5px 15px rgba(0,212,170,0.4);
-}
-
-.cta-btn.secondary:hover {
-    background: linear-gradient(45deg, #00b894, #00d4aa);
-    box-shadow: 0 8px 25px rgba(0,212,170,0.6);
+.btn:hover {
     transform: translateY(-3px);
 }
 
-/* =================================
-   CONTENIDO PRINCIPAL
-   ================================= */
-
-.main-content {
-    padding: 100px 0;
-    background: var(--light-color);
+.btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
 }
 
-/* TÍTULOS DE SECCIÓN */
-.section-title {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 30px;
+.btn-secondary:hover {
+    background: white;
+    color: #333;
+}
+
+/* Delivery Buttons */
+.delivery-section {
+    background: #f8f9fa;
+    padding: 3rem 0;
     text-align: center;
-    position: relative;
 }
 
-.section-title::after {
-    content: '';
+.delivery-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.delivery-btn {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.delivery-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Content Sections */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 20px;
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.section.active {
     display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 20px auto;
-    border-radius: 2px;
 }
 
-.section-description {
-    font-size: 1.2rem;
+.section h2 {
+    color: #2c1810;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
 }
 
-/* GRIDS PARA CONTENIDO */
-.features-grid,
-.pizza-showcase {
+.section h3 {
+    color: #ff6b35;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+}
+
+/* Menu Items */
+.menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
-/* TARJETAS DE CARACTERÍSTICAS */
-.feature-card {
-    background: var(--white);
+.menu-item {
+    background: white;
     border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    border: 3px solid transparent;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.feature-card:hover {
+.menu-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-color);
 }
 
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+.menu-item h4 {
+    color: #2c1810;
+    margin-bottom: 0.5rem;
 }
 
-.feature-title {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-.feature-description {
-    color: #666;
-    line-height: 1.6;
-}
-
-/* TARJETAS DE PIZZA */
-.pizza-card {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    border: 3px solid transparent;
-}
-
-.pizza-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-color);
-}
-
-.pizza-image {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
-
-.pizza-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.pizza-card p {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.price {
-    font-size: 1.3rem;
+.menu-item .price {
+    color: #ff6b35;
     font-weight: bold;
-    color: var(--dark-color);
-    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
-.btn-small {
-    display: inline-block;
-    padding: 8px 20px;
-    background: var(--primary-color);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+/* Map Container */
+.map-container {
+    width: 100%;
+    height: 400px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    border: 2px dashed #ccc;
 }
 
-.btn-small:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
+/* Horarios */
+.horarios {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 2rem 0;
 }
 
-/* =================================
-   BOTÓN FLOTANTE DE WHATSAPP
-   ================================= */
+.horarios table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.horarios th, .horarios td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.horarios th {
+    background: #ff6b35;
+    color: white;
+}
+
+/* Social Media */
+.social-media {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.social-btn {
     width: 60px;
     height: 60px;
-    background: #25d366; /* Color oficial de WhatsApp */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    z-index: 999;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.facebook { 
+    background: #3b5998; 
+}
+
+.instagram { 
+    background: #e4405f; 
+}
+
+.twitter { 
+    background: #1da1f2; 
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
     transition: all 0.3s ease;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-align: center;
-    animation: bounce 2s infinite; /* Animación de rebote */
+    animation: pulse 2s infinite;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
 }
 
-/* =================================
-   FOOTER
-   ================================= */
-
+/* Footer */
 .footer {
-    background: var(--dark-color);
-    color: var(--white);
-    padding: 40px 0 20px;
+    background: #2c1810;
+    color: white;
+    padding: 3rem 0 1rem 0;
+    text-align: center;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.footer-section h4 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+.footer-section {
+    margin-bottom: 2rem;
 }
 
-.footer-section p {
-    margin-bottom: 10px;
-    color: #ccc;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-.footer-links a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-link {
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: var(--white);
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.social-link.facebook {
-    background: #3b5998;
-}
-
-.social-link.instagram {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-}
-
-.social-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.footer-section h3 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
 }
 
 .footer-bottom {
-    border-top: 1px solid #555;
-    padding-top: 20px;
-    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    margin-top: 2rem;
     color: #ccc;
 }
 
-.footer-bottom p {
-    margin-bottom: 5px;
+/* Animaciones */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
 }
-
-/* =================================
-   ANIMACIONES
-   ================================= */
 
 @keyframes fadeInUp {
     from {
@@ -533,74 +441,38 @@ body {
     }
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { 
-        transform: translateY(0); 
-    }
-    40% { 
-        transform: translateY(-10px); 
-    }
-    60% { 
-        transform: translateY(-5px); 
-    }
-}
-
-/* Animación de entrada para elementos */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =================================
-   RESPONSIVE DESIGN - MÓVILES
-   ================================= */
-
-@media screen and (max-width: 768px) {
-    /* NAVEGACIÓN MÓVIL */
+/* Responsive Design */
+@media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(0, 0, 0, 0.95);
+        background: #2c1810;
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 50px;
-        transition: all 0.3s ease;
+        gap: 0;
+        padding: 1rem 0;
     }
 
     .nav-menu.active {
-        left: 0; /* Mostrar menú */
+        display: flex;
     }
 
-    .mobile-menu-btn {
-        display: flex; /* Mostrar botón de menú móvil */
+    .mobile-menu-toggle {
+        display: flex;
     }
 
-    .dropdown {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        background: rgba(255, 107, 53, 0.1);
-        margin-top: 10px;
-        border-radius: 5px;
+    .logo {
+        font-size: 2rem;
     }
 
-    /* HERO RESPONSIVE */
-    .hero-title {
+    .hero-content h1 {
         font-size: 2.5rem;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .hero-content p {
+        font-size: 1.2rem;
     }
 
     .cta-buttons {
@@ -608,67 +480,104 @@ body {
         align-items: center;
     }
 
-    .cta-btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
+    .delivery-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
-    /* GRIDS RESPONSIVE */
-    .features-grid,
-    .pizza-showcase {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-        gap: 20px;
-    }
-
-    /* BOTÓN WHATSAPP MÓVIL */
-    .whatsapp-float {
-        bottom: 15px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 0.7rem;
-    }
-
-    /* FOOTER RESPONSIVE */
-    .footer-content {
+    .menu-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
 
-    .social-links {
-        justify-content: center;
+    .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: #444;
     }
 }
 
-/* TABLETS */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-    .hero-title {
-        font-size: 3rem;
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
     }
     
-    .features-grid,
-    .pizza-showcase {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .delivery-btn {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content {
+        padding: 2rem 15px;
+    }
+    
+    .section h2 {
+        font-size: 2rem;
+    }
+    
+    .menu-item {
+        padding: 1rem;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1.2rem;
     }
 }
 
-/* PANTALLAS MUY PEQUEÑAS */
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+/* Print styles */
+@media print {
+    .header, 
+    .whatsapp-float, 
+    .social-media {
+        display: none !important;
     }
-
-    .hero-title {
-        font-size: 2rem;
+    
+    .section {
+        display: block !important;
+        page-break-inside: avoid;
     }
-
-    .section-title {
-        font-size: 2rem;
+    
+    .menu-item {
+        break-inside: avoid;
     }
+}
 
-    .feature-card,
-    .pizza-card {
-        padding: 20px;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        border: 2px solid white;
+    }
+    
+    .nav-link:hover {
+        border: 1px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .whatsapp-float {
+        animation: none;
     }
 }

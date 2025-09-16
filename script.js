@@ -1,439 +1,125 @@
-/* =================================
-   TOMASINOS - ARCHIVO JAVASCRIPT
-   Pizzería - Nuevo León, México
-   ================================= */
-
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todas las funciones
-    initializeMobileMenu();
-    initializeScrollEffects();
-    initializeAnimations();
-    initializeNavigation();
+// Navigation functionality
+function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
     
-    console.log('Tomasinos Website - JavaScript cargado correctamente');
-});
-
-/* =================================
-   MENÚ MÓVIL
-   ================================= */
-
-function initializeMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Verificar que los elementos existan
-    if (!mobileMenuBtn || !navMenu) {
-        console.log('Elementos del menú móvil no encontrados');
-        return;
+    // Show selected section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
     }
     
-    // Toggle del menú móvil
-    mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
-        // Animación del botón hamburguesa
-        const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line');
-        mobileMenuBtn.classList.toggle('active');
-        
-        // Cambiar las líneas del hamburger a X
-        if (navMenu.classList.contains('active')) {
-            hamburgerLines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            hamburgerLines[1].style.opacity = '0';
-            hamburgerLines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            hamburgerLines[0].style.transform = 'none';
-            hamburgerLines[1].style.opacity = '1';
-            hamburgerLines[2].style.transform = 'none';
-        }
-    });
-    
-    // Cerrar menú al hacer clic en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            
-            // Resetear botón hamburguesa
-            const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line');
-            hamburgerLines[0].style.transform = 'none';
-            hamburgerLines[1].style.opacity = '1';
-            hamburgerLines[2].style.transform = 'none';
-        });
-    });
-    
-    // Cerrar menú al hacer clic fuera de él
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navMenu.contains(event.target);
-        const isClickOnButton = mobileMenuBtn.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnButton && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            
-            // Resetear botón hamburguesa
-            const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line');
-            hamburgerLines[0].style.transform = 'none';
-            hamburgerLines[1].style.opacity = '1';
-            hamburgerLines[2].style.transform = 'none';
-        }
-    });
+    // Close mobile menu if open
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.remove('active');
 }
 
-/* =================================
-   EFECTOS DE SCROLL
-   ================================= */
+// Mobile menu toggle
+function toggleMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('active');
+}
 
-function initializeScrollEffects() {
-    const header = document.querySelector('.header');
+// Redirect to Google Maps for comments
+function redirectToGoogleMaps() {
+    // Replace with actual Google Maps review link
+    window.open('https://www.google.com/maps/place/[PLACE_ID]/reviews', '_blank');
+}
+
+// Initialize page functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Set delivery platform links
+    const didiLink = document.querySelector('.delivery-btn:first-child');
+    const uberLink = document.querySelector('.delivery-btn:last-child');
     
-    if (!header) {
-        console.log('Header no encontrado');
-        return;
+    if (didiLink) {
+        didiLink.href = 'https://didi.com.mx/food/'; // Replace with actual DiDi Food link
     }
     
-    // Efecto de scroll en el header
-    window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY;
-        
-        // Cambiar estilo del header al hacer scroll
-        if (scrollY > 100) {
-            header.style.background = 'rgba(0, 0, 0, 0.95)';
-            header.style.backdropFilter = 'blur(15px)';
-            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-        } else {
-            header.style.background = 'rgba(0, 0, 0, 0.9)';
-            header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = 'none';
-        }
-        
-        // Efecto parallax en el hero (solo en la página principal)
-        const hero = document.querySelector('.hero');
-        if (hero && window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-            const parallaxSpeed = 0.5;
-            const yPos = scrollY * parallaxSpeed;
-            hero.style.transform = `translateY(${yPos}px)`;
-        }
-    });
-    
-    // Smooth scroll para enlaces internos
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    if (uberLink) {
+        uberLink.href = 'https://www.ubereats.com/mx'; // Replace with actual Uber Eats link
+    }
+
+    // Add click event for social media buttons
+    const socialButtons = document.querySelectorAll('.social-btn');
+    socialButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            if (this.classList.contains('facebook')) {
+                window.open('https://www.facebook.com/tomasinos', '_blank');
+            } else if (this.classList.contains('instagram')) {
+                window.open('https://www.instagram.com/tomasinos', '_blank');
+            } else if (this.classList.contains('twitter')) {
+                window.open('https://www.twitter.com/tomasinos', '_blank');
             }
         });
     });
-}
 
-/* =================================
-   ANIMACIONES DE ENTRADA
-   ================================= */
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const navMenu = document.getElementById('nav-menu');
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        
+        if (!navMenu.contains(event.target) && !toggleButton.contains(event.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
 
-function initializeAnimations() {
-    // Observador de intersección para animaciones
+    // Add animation on scroll
     const observerOptions = {
-        threshold: 0.1, // Activar cuando 10% del elemento sea visible
-        rootMargin: '0px 0px -50px 0px' // Activar un poco antes
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
-    
-    // Observar elementos con animación
-    const animatedElements = document.querySelectorAll('.feature-card, .pizza-card, .menu-item');
-    animatedElements.forEach(element => {
-        element.classList.add('fade-in');
-        observer.observe(element);
+
+    // Observe menu items for scroll animations
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
     });
-    
-    // Animación de contador (si hay números)
-    animateCounters();
-}
-
-/* =================================
-   NAVEGACIÓN ACTIVA
-   ================================= */
-
-function initializeNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Marcar enlace activo basado en la página actual
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage || 
-            (currentPage === '' && linkHref === 'index.html') ||
-            (currentPage === 'index.html' && linkHref === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-}
-
-/* =================================
-   FUNCIONES AUXILIARES
-   ================================= */
-
-// Animación de contadores
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const speed = 200; // Velocidad de la animación
-        
-        const updateCount = () => {
-            const current = parseInt(counter.textContent);
-            const increment = target / speed;
-            
-            if (current < target) {
-                counter.textContent = Math.ceil(current + increment);
-                setTimeout(updateCount, 1);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        // Iniciar animación cuando el elemento sea visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateCount();
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        
-        observer.observe(counter);
-    });
-}
-
-// Función para mostrar notificaciones
-function showNotification(message, type = 'success') {
-    // Crear elemento de notificación
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    
-    // Estilos inline para la notificación
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#4CAF50' : '#f44336'};
-        color: white;
-        padding: 15px 20px;
-        border-radius: 5px;
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    `;
-    
-    // Agregar al DOM
-    document.body.appendChild(notification);
-    
-    // Mostrar notificación
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Ocultar y remover notificación
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
-
-// Función para validar formularios (para uso futuro)
-function validateForm(formElement) {
-    const inputs = formElement.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            input.style.borderColor = '#f44336';
-            isValid = false;
-        } else {
-            input.style.borderColor = '#ddd';
-        }
-        
-        // Validación específica para email
-        if (input.type === 'email' && input.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value)) {
-                input.style.borderColor = '#f44336';
-                isValid = false;
-            }
-        }
-        
-        // Validación específica para teléfono
-        if (input.type === 'tel' && input.value.trim()) {
-            const phoneRegex = /^[\d\-\+\(\)\s]+$/;
-            if (!phoneRegex.test(input.value)) {
-                input.style.borderColor = '#f44336';
-                isValid = false;
-            }
-        }
-    });
-    
-    return isValid;
-}
-
-// Función para cargar contenido dinámicamente (para uso futuro)
-function loadContent(url, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    // Mostrar loader
-    container.innerHTML = '<div class="loader">Cargando...</div>';
-    
-    fetch(url)
-        .then(response => response.text())
-        .then(html => {
-            container.innerHTML = html;
-            // Re-inicializar animaciones para el nuevo contenido
-            initializeAnimations();
-        })
-        .catch(error => {
-            console.error('Error cargando contenido:', error);
-            container.innerHTML = '<p>Error cargando el contenido. Por favor, recarga la página.</p>';
-        });
-}
-
-// Función para optimizar imágenes lazy loading
-function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Función para manejar errores globales
-window.addEventListener('error', function(event) {
-    console.error('Error en el sitio web:', event.error);
-    
-    // En producción, aquí podrías enviar el error a un servicio de logging
-    // sendErrorToLoggingService(event.error);
 });
 
-// Función para mejorar la accesibilidad
-function initializeAccessibility() {
-    // Agregar navegación por teclado para elementos personalizados
-    const customButtons = document.querySelectorAll('.cta-btn, .btn-small, .whatsapp-float');
-    
-    customButtons.forEach(button => {
-        // Hacer elementos focusables
-        if (!button.hasAttribute('tabindex')) {
-            button.setAttribute('tabindex', '0');
-        }
-        
-        // Agregar soporte para Enter y Espacio
-        button.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                button.click();
-            }
-        });
-    });
-    
-    // Anunciar cambios dinámicos para lectores de pantalla
-    const announcer = document.createElement('div');
-    announcer.setAttribute('aria-live', 'polite');
-    announcer.setAttribute('aria-atomic', 'true');
-    announcer.style.position = 'absolute';
-    announcer.style.left = '-10000px';
-    announcer.style.width = '1px';
-    announcer.style.height = '1px';
-    announcer.style.overflow = 'hidden';
-    document.body.appendChild(announcer);
-    
-    // Función global para anunciar cambios
-    window.announceToScreenReader = function(message) {
-        announcer.textContent = message;
-        setTimeout(() => {
-            announcer.textContent = '';
-        }, 1000);
-    };
-}
-
-// Inicializar características adicionales cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    initializeLazyLoading();
-    initializeAccessibility();
+// Add loading effect
+window.addEventListener('load', function() {
+    document.body.style.opacity = '1';
 });
 
-/* =================================
-   UTILIDADES DE RENDIMIENTO
-   ================================= */
+// Smooth scroll behavior for better UX
+function smoothScrollTo(element) {
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
 
-// Throttle function para optimizar eventos de scroll
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
+// Keyboard navigation support
+document.addEventListener('keydown', function(e) {
+    // ESC key closes mobile menu
+    if (e.key === 'Escape') {
+        const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.remove('active');
     }
-}
+});
 
-// Debounce function para optimizar eventos de resize
-function debounce(func, wait, immediate) {
-    let timeout;
-    return function() {
-        const context = this;
-        const args = arguments;
-        const later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// Optimizar eventos de scroll con throttle
-window.addEventListener('scroll', throttle(function() {
-    // Aquí van las funciones optimizadas de scroll
-    initializeScrollEffects();
-}, 16)); // ~60fps
-
-// Optimizar eventos de resize con debounce
-window.addEventListener('resize', debounce(function() {
-    // Recalcular dimensiones si es necesario
-    console.log('Ventana redimensionada');
-}, 250));
-
-console.log('🍕 Tomasinos - Sistema JavaScript inicializado correctamente');
+// Handle window resize for responsive behavior
+window.addEventListener('resize', function() {
+    const navMenu = document.getElementById('nav-menu');
+    // Close mobile menu on resize to larger screen
+    if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+    }
+});

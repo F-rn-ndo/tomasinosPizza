@@ -1,217 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tomasinos - La mejor pizza artesanal de Nuevo León, México. Pizzas familiares, promociones especiales y entrega a domicilio.">
-    <meta name="keywords" content="pizza, Nuevo León, México, entrega, Tomasinos, pizza artesanal">
-    <title>Tomasinos</title>
-    
-    <!-- Vinculación del archivo CSS -->
+    <title>Tomasinos - Pizzería en Nuevo León</title>
     <link rel="stylesheet" href="estilo.css">
-    
-    <!-- Favicon (opcional) -->
-    <link rel="icon" type="image/x-icon" href="images/logotomasinos.jpeg">
 </head>
 <body>
-    <!-- HEADER - Barra de navegación fija -->
+    <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <!-- Logo de la pizzería -->
             <div class="logo">Tomasinos</div>
-            
-            <!-- Menú de navegación principal -->
             <nav>
                 <ul class="nav-menu" id="nav-menu">
-                    <!-- Enlace a página principal -->
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            Inicio
-                        </a>
+                        <a href="#" class="nav-link" onclick="showSection('inicio')">Inicio</a>
                     </li>
-                    
-                    <!-- Menú desplegable de comida -->
-                    <li class="nav-item dropdown-parent">
-                        <a href="#" class="nav-link">
-                            Menú
-                        </a>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Menú</a>
                         <div class="dropdown">
-                            <a href="promociones.html">Promociones</a>
-                            <a href="pizzas.html">Pizzas</a>
-                            <a href="pizzas-familiares.html">Pizzas Familiares</a>
-                            <a href="stromboli.html">Stromboli</a>
-                            <a href="complementos.html">Complementos y Extras</a>
-                            <a href="refrescos.html">Refrescos</a>
+                            <a href="#" onclick="showSection('promociones')">Promociones</a>
+                            <a href="#" onclick="showSection('pizzas')">Pizzas</a>
+                            <a href="#" onclick="showSection('pizzas-familiares')">Pizzas Familiares</a>
+                            <a href="#" onclick="showSection('stromboli')">Stromboli</a>
+                            <a href="#" onclick="showSection('complementos')">Complementos y Extras</a>
+                            <a href="#" onclick="showSection('refrescos')">Refrescos</a>
                         </div>
                     </li>
-                    
-                    <!-- Enlace a sucursales -->
                     <li class="nav-item">
-                        <a href="sucursales.html" class="nav-link">
-                            Sucursales
-                        </a>
+                        <a href="#" class="nav-link" onclick="showSection('sucursales')">Sucursales</a>
                     </li>
-                    
-                    <!-- Enlace a información de la empresa -->
                     <li class="nav-item">
-                        <a href="quienes-somos.html" class="nav-link">
-                            ¿Quiénes somos?
-                        </a>
+                        <a href="#" class="nav-link" onclick="showSection('quienes-somos')">¿Quiénes Somos?</a>
                     </li>
-                    
-                    <!-- Enlace externo a comentarios de Google -->
                     <li class="nav-item">
-                        <a href="https://www.google.com/maps/search/tomasinos+pizza+nuevo+leon" target="_blank" class="nav-link">
-                            Comentarios
-                        </a>
+                        <a href="#" class="nav-link" onclick="redirectToGoogleMaps()">Comentarios</a>
                     </li>
                 </ul>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
-            
-            <!-- Botón para menú móvil -->
-            <div class="mobile-menu-btn" id="mobile-menu-btn">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION - Sección principal con imagen de fondo -->
-    <section class="hero">
-        <!-- Contenido principal del hero -->
-        <div class="hero-content">
-            <h1 class="hero-title">Bienvenidos a Tomasinos</h1>
-            <p class="hero-subtitle">La mejor pizza artesanal de Nuevo León, hecha con ingredientes frescos y mucho amor</p>
-            
-            <!-- Botones de llamada a la acción -->
-            <div class="cta-buttons">
-                <a href="pizzas.html" class="cta-btn primary">
-                    Ver Menú
+    <!-- Hero Section (Inicio) -->
+    <section id="inicio" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Tomasinos</h1>
+                <p>Las mejores pizzas de Nuevo León</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showSection('pizzas')">Ver Menú</a>
+                    <a href="#" class="btn btn-secondary" onclick="showSection('sucursales')">Nuestras Sucursales</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Section -->
+        <div class="delivery-section">
+            <h2>Ordena a domicilio</h2>
+            <div class="delivery-buttons">
+                <a href="#" class="delivery-btn">
+                    <span>🍕</span>
+                    <div>
+                        <h4>DiDi Food</h4>
+                        <p>Entrega rápida</p>
+                    </div>
                 </a>
-                <a href="https://www.didifood.com/restaurant/tomasinos" target="_blank" class="cta-btn secondary">
-                    🚚 | Didi Food
-                </a>
-                <a href="https://www.ubereats.com/store/tomasinos" target="_blank" class="cta-btn secondary">
-                    🚚 | Uber Eats
+                <a href="#" class="delivery-btn">
+                    <span>🚗</span>
+                    <div>
+                        <h4>Uber Eats</h4>
+                        <p>A tu puerta</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MAIN CONTENT - Contenido principal de la página de inicio -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Sección de bienvenida -->
-            <section class="welcome-section">
-                <h2 class="section-title">Bienvenidos a la Familia Tomasinos</h2>
-                <p class="section-description">
-                    Desde hace más de 15 años, Tomasinos ha sido sinónimo de calidad, sabor y tradición en Nuevo León. 
-                    Nuestra pasión por crear las mejores pizzas artesanales nos ha convertido en la pizzería favorita de miles de familias.
-                </p>
-                
-                <!-- Grid de características destacadas -->
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🏆</div>
-                        <h3 class="feature-title">Calidad Premium</h3>
-                        <p class="feature-description">Ingredientes frescos seleccionados cuidadosamente cada día para garantizar el mejor sabor.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">👨‍🍳</div>
-                        <h3 class="feature-title">Receta Artesanal</h3>
-                        <p class="feature-description">Masa hecha en casa diariamente con nuestra receta secreta transmitida por generaciones.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">🚚</div>
-                        <h3 class="feature-title">Entrega Rápida</h3>
-                        <p class="feature-description">Disponible en Didi Food y Uber Eats para que disfrutes nuestras pizzas en la comodidad de tu hogar.</p>
-                    </div>
+    <!-- Promociones -->
+    <section id="promociones" class="section">
+        <div class="content">
+            <h2>Promociones Especiales</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>2x1 en Pizzas Medianas</h4>
+                    <p>Todos los martes y miércoles. Válido para pizzas medianas de cualquier sabor.</p>
+                    <div class="price">¡Oferta especial!</div>
                 </div>
-            </section>
-
-            <!-- Sección de pizzas destacadas -->
-            <section class="featured-pizzas">
-                <h2 class="section-title">Nuestras Pizzas Más Populares</h2>
-                <div class="pizza-showcase">
-                    <div class="pizza-card">
-                        <div class="pizza-image">🍕</div>
-                        <h3>Pizza Suprema</h3>
-                        <p>Pepperoni, jamón, champiñones, pimiento y cebolla</p>
-                        <div class="price">$280 MXN</div>
-                        <a href="pizzas.html" class="btn-small">Ver más</a>
-                    </div>
-                    
-                    <div class="pizza-card">
-                        <div class="pizza-image">🍕</div>
-                        <h3>Pizza Mexicana</h3>
-                        <p>Chorizo, jalapeños, cebolla y pimiento</p>
-                        <div class="price">$240 MXN</div>
-                        <a href="pizzas.html" class="btn-small">Ver más</a>
-                    </div>
-                    
-                    <div class="pizza-card">
-                        <div class="pizza-image">🍕</div>
-                        <h3>Pizza Familiar</h3>
-                        <p>Perfecta para compartir en familia</p>
-                        <div class="price">Desde $320 MXN</div>
-                        <a href="pizzas-familiares.html" class="btn-small">Ver más</a>
-                    </div>
+                <div class="menu-item">
+                    <h4>Combo Familiar</h4>
+                    <p>Pizza familiar + 2 refrescos + complemento a elegir</p>
+                    <div class="price">$XXX</div>
                 </div>
-            </section>
+                <div class="menu-item">
+                    <h4>Pizza + Refresco</h4>
+                    <p>Pizza individual + refresco de 600ml</p>
+                    <div class="price">$XXX</div>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/5281234567890?text=Hola,%20vengo%20de%20https://tsce.ola.click%20Deseo%20realizar%20el%20siguiente%20pedido:" 
-       target="_blank" 
-       class="whatsapp-float"
-       title="¡Haz tu pedido por WhatsApp!"
-       aria-label="Contactar por WhatsApp">
-        WhatsApp
+    <!-- Pizzas -->
+    <section id="pizzas" class="section">
+        <div class="content">
+            <h2>Nuestras Pizzas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Pizza Margherita</h4>
+                    <p>Salsa de tomate, mozzarella fresca, albahaca, aceite de oliva</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pizza Pepperoni</h4>
+                    <p>Salsa de tomate, mozzarella, pepperoni</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pizza Hawaiana</h4>
+                    <p>Salsa de tomate, mozzarella, jamón, piña</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pizza Mexicana</h4>
+                    <p>Salsa de tomate, mozzarella, chorizo, jalapeños, cebolla</p>
+                    <div class="price">$XXX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pizzas Familiares -->
+    <section id="pizzas-familiares" class="section">
+        <div class="content">
+            <h2>Pizzas Familiares</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Pizza Familiar Especial</h4>
+                    <p>Tamaño familiar con todos los ingredientes premium</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pizza Familiar Suprema</h4>
+                    <p>Pepperoni, salchicha, pimientos, cebolla, champiñones</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pizza Familiar Vegetariana</h4>
+                    <p>Pimientos, cebolla, champiñones, tomate, aceitunas</p>
+                    <div class="price">$XXX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stromboli -->
+    <section id="stromboli" class="section">
+        <div class="content">
+            <h2>Stromboli</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Stromboli Clásico</h4>
+                    <p>Masa de pizza enrollada con queso mozzarella y pepperoni</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Stromboli de Pollo</h4>
+                    <p>Pollo a la plancha, queso mozzarella, pimientos</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Stromboli Vegetariano</h4>
+                    <p>Verduras asadas, queso mozzarella, hierbas finas</p>
+                    <div class="price">$XXX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complementos -->
+    <section id="complementos" class="section">
+        <div class="content">
+            <h2>Complementos y Extras</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Alitas BBQ</h4>
+                    <p>8 piezas con salsa BBQ</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Pan de Ajo</h4>
+                    <p>Pan artesanal con mantequilla de ajo y hierbas</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Ensalada César</h4>
+                    <p>Lechuga, crutones, parmesano, aderezo césar</p>
+                    <div class="price">$XXX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Dedos de Mozzarella</h4>
+                    <p>6 piezas con salsa marinara</p>
+                    <div class="price">$XXX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refrescos -->
+    <section id="refrescos" class="section">
+        <div class="content">
+            <h2>Bebidas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Refrescos</h4>
+                    <p>Coca-Cola, Pepsi, Sprite, Fanta - 355ml/600ml/1L</p>
+                    <div class="price">$XX / $XX / $XX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Agua Natural</h4>
+                    <p>Agua purificada 500ml</p>
+                    <div class="price">$XX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Agua Fresca</h4>
+                    <p>Horchata, Jamaica, Tamarindo - 500ml</p>
+                    <div class="price">$XX</div>
+                </div>
+                <div class="menu-item">
+                    <h4>Cerveza</h4>
+                    <p>Corona, Tecate, XX Lager</p>
+                    <div class="price">$XX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sucursales -->
+    <section id="sucursales" class="section">
+        <div class="content">
+            <h2>Nuestras Sucursales</h2>
+            
+            <h3>Sucursal Centro</h3>
+            <p>Dirección: [Dirección completa]</p>
+            <p>Teléfono: [Número de teléfono]</p>
+            
+            <div class="map-container">
+                <p>Insertar Google Maps aquí</p>
+            </div>
+
+            <div class="horarios">
+                <h3>Horarios de Atención</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lunes - Jueves</td>
+                            <td>11:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Viernes - Sábado</td>
+                            <td>11:00 AM - 11:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>12:00 PM - 9:00 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos" class="section">
+        <div class="content">
+            <h2>¿Quiénes Somos?</h2>
+            <p>En Tomasinos, somos una pizzería familiar con más de [X] años de experiencia creando las mejores pizzas de Nuevo León. Nuestra pasión es combinar ingredientes frescos y de la más alta calidad con recetas tradicionales que han pasado de generación en generación.</p>
+            
+            <h3>Nuestra Historia</h3>
+            <p>Fundada en [año], Tomasinos nació del sueño de llevar a cada mesa el auténtico sabor de la pizza italiana con un toque mexicano especial. Desde entonces, nos hemos convertido en el lugar favorito de las familias regiomontanas.</p>
+            
+            <h3>Nuestra Misión</h3>
+            <p>Crear momentos únicos alrededor de una buena pizza, utilizando siempre ingredientes frescos, masa hecha diariamente y el cariño que caracteriza a la cocina mexicana.</p>
+
+            <div class="social-media">
+                <a href="#" class="social-btn facebook">f</a>
+                <a href="#" class="social-btn instagram">📷</a>
+                <a href="#" class="social-btn twitter">🐦</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/52XXXXXXXXXX?text=Hola,%20vengo%20de%20la%20página%20web%20de%20Tomasinos.%20Deseo%20realizar%20el%20siguiente%20pedido:" 
+       class="whatsapp-float" target="_blank">
+        📱
     </a>
 
-    <!-- FOOTER - Pie de página -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- Información de contacto -->
             <div class="footer-section">
-                <h4>Contacto</h4>
-                <p>Teléfono: (81) 1234-5678</p>
-                <p>Email: contacto@tomasinos.com</p>
+                <h3>Tomasinos</h3>
+                <p>Las mejores pizzas de Nuevo León</p>
             </div>
             
-            <!-- Enlaces rápidos -->
             <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
-                <ul class="footer-links">
-                    <li><a href="pizzas.html">Menú</a></li>
-                    <li><a href="sucursales.html">Sucursales</a></li>
-                    <li><a href="quienes-somos.html">Nosotros</a></li>
-                </ul>
+                <h3>Contacto</h3>
+                <p>Teléfono: [Número de teléfono]</p>
+                <p>Email: [Email de contacto]</p>
             </div>
             
-            <!-- Redes sociales -->
             <div class="footer-section">
-                <h4>Síguenos</h4>
-                <div class="social-links">
-                    <a href="https://facebook.com/tomasinos" target="_blank" class="social-link facebook">Facebook</a>
-                    <a href="https://instagram.com/tomasinos" target="_blank" class="social-link instagram">Instagram</a>
+                <h3>Síguenos</h3>
+                <div class="social-media">
+                    <a href="#" class="social-btn facebook">f</a>
+                    <a href="#" class="social-btn instagram">📷</a>
+                    <a href="#" class="social-btn twitter">🐦</a>
                 </div>
             </div>
         </div>
         
-        <!-- Copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2025 Tomasinos - Todos los derechos reservados</p>
-            <p>Desarrollado por <strong>CRESIMEX</strong> - Soluciones Profesionales para tu Negocio.</p>
+            <p>&copy; 2025 [Tu Empresa]. Todos los derechos reservados. | Sitio web desarrollado por [Tu Empresa]</p>
         </div>
     </footer>
 
-    <!-- Vinculación del archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
