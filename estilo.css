@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     line-height: 1.6;
     color: #333;
     opacity: 0;
@@ -119,7 +119,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23ff6b35" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="60" fill="white" text-anchor="middle">Imagen de fondo aquí</text></svg>');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/fondo.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -281,16 +281,37 @@ body {
 }
 
 /* Map Container */
+
 .map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
     width: 100%;
-    height: 400px;
-    background: #f0f0f0;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0;
-    border: 2px dashed #ccc;
+    height: 400px; /* Ajusta según necesites */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.3); /* Opcional: reduce saturación */
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.map-container:hover iframe {
+    filter: grayscale(0); /* Restaura color completo al hover */
 }
 
 /* Horarios */
@@ -579,5 +600,14 @@ body {
     
     .whatsapp-float {
         animation: none;
+    }
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+    .map-container {
+        padding-bottom: 75%; /* Ratio más cuadrado en móvil */
+        margin: 15px 0;
+        border-radius: 8px;
     }
 }
